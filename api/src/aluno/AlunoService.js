@@ -33,11 +33,11 @@ const getAlunosWithFilter = async (page, size, authenticatedUser, search) => {
       offset: page * size,
       where: {
         [Op.or]: [
-          { nome: { [Op.like]: `%${search}%` } },
-          { localidade: { [Op.like]: `%${search}%` } },
-          { curso: { [Op.like]: `%${search}%` } },
-          { sobre: { [Op.like]: `%${search}%` } },
-          { semestre: { [Op.like]: `%${search}%` } },
+          { nome: { [Op.iLike]: `%${search}%` } },
+          { localidade: { [Op.iLike]: `%${search}%` } },
+          { curso: { [Op.iLike]: `%${search}%` } },
+          { sobre: { [Op.iLike]: `%${search}%` } },
+          { semestre: { [Op.iLike]: `%${search}%` } },
         ],
       },
     });

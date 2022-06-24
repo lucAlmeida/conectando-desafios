@@ -22,11 +22,11 @@ const getProjetosWithFilter = async (page, size, authenticatedUser, search) => {
       offset: page * size,
       where: {
         [Op.or]: [
-          { titulo: { [Op.like]: `%${search}%` } },
-          { categoria: { [Op.like]: `%${search}%` } },
-          { descricao: { [Op.like]: `%${search}%` } },
-          // { contato: { [Op.like]: `%${search}%` } },
-          // { '$Empresa.nome$': { [Op.like]: `%${search}%` } },
+          { titulo: { [Op.iLike]: `%${search}%` } },
+          { categoria: { [Op.iLike]: `%${search}%` } },
+          { descricao: { [Op.iLike]: `%${search}%` } },
+          // { contato: { [Op.iLike]: `%${search}%` } },
+          // { '$Empresa.nome$': { [Op.iLike]: `%${search}%` } },
         ],
       },
       include: [

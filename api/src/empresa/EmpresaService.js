@@ -34,11 +34,11 @@ const getEmpresasWithFilter = async (page, size, authenticatedUser, search) => {
       offset: page * size,
       where: {
         [Op.or]: [
-          { nome: { [Op.like]: `%${search}%` } },
-          { responsavel: { [Op.like]: `%${search}%` } },
-          { categoria: { [Op.like]: `%${search}%` } },
-          { localidade: { [Op.like]: `%${search}%` } },
-          { cnpj: { [Op.like]: `%${search}%` } },
+          { nome: { [Op.iLike]: `%${search}%` } },
+          { responsavel: { [Op.iLike]: `%${search}%` } },
+          { categoria: { [Op.iLike]: `%${search}%` } },
+          { localidade: { [Op.iLike]: `%${search}%` } },
+          { cnpj: { [Op.iLike]: `%${search}%` } },
         ],
       },
     });
