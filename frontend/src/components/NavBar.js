@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import logo from '../assets/hoaxify.png';
+import logo from '../assets/conectando-desafios-logo.png';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../api/apiCalls';

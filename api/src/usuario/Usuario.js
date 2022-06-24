@@ -40,8 +40,8 @@ Usuario.init(
 );
 
 Usuario.hasMany(Token, { onDelete: 'cascade', foreignKey: 'idUsuario' });
-Usuario.hasOne(Aluno, { foreignKey: 'idUsuario' });
-Usuario.hasOne(Empresa, { foreignKey: 'idUsuario' });
+Usuario.hasOne(Aluno, { foreignKey: 'id' });
+Usuario.hasOne(Empresa, { foreignKey: 'id' });
 Usuario.hasMany(Projeto, { onDelete: 'cascade', hooks: 'true', foreignKey: 'idUsuario' });
 
 module.exports = Usuario;

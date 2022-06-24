@@ -80,6 +80,7 @@ const getProjeto = async (id) => {
 };
 
 const updateProjeto = async (id, updatedBody) => {
+  console.log('id:    ' + id);
   const projeto = await Projeto.findOne({ where: { id: id } });
   projeto.titulo = updatedBody.titulo;
   projeto.categoria = updatedBody.categoria;

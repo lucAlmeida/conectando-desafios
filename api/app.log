@@ -1,0 +1,53 @@
+{"level":"error","message":"error"}
+{"level":"warn","message":"warn"}
+{"level":"info","message":"info"}
+{"level":"verbose","message":"verbose"}
+{"level":"debug","message":"debug"}
+{"level":"info","message":"app is running!"}
+{"level":"error","message":"error"}
+{"level":"warn","message":"warn"}
+{"level":"info","message":"info"}
+{"level":"verbose","message":"verbose"}
+{"level":"debug","message":"debug"}
+{"level":"info","message":"app is running!"}
+{"level":"error","message":"error"}
+{"level":"warn","message":"warn"}
+{"level":"info","message":"info"}
+{"level":"verbose","message":"verbose"}
+{"level":"debug","message":"debug"}
+{"level":"info","message":"app is running!"}
+{"level":"error","message":"error"}
+{"level":"warn","message":"warn"}
+{"level":"info","message":"info"}
+{"level":"verbose","message":"verbose"}
+{"level":"debug","message":"debug"}
+{"level":"info","message":"app is running!"}
+{"level":"error","message":"error"}
+{"level":"warn","message":"warn"}
+{"level":"info","message":"info"}
+{"level":"verbose","message":"verbose"}
+{"level":"debug","message":"debug"}
+{"level":"info","message":"app is running!"}
+{"level":"error","message":"error"}
+{"level":"warn","message":"warn"}
+{"level":"info","message":"info"}
+{"level":"verbose","message":"verbose"}
+{"level":"debug","message":"debug"}
+{"level":"info","message":"app is running!"}
+{"level":"error","message":"error"}
+{"level":"error","message":"error"}
+{"level":"error","message":"error"}
+{"level":"error","message":"error"}
+{"level":"error","message":"error"}
+{"level":"error","message":"error"}
+{"level":"error","message":"error"}
+{"level":"error","message":"error"}
+2022-06-23T23:27:49.955Z error error
+2022-06-23T23:27:50.780Z error error
+2022-06-23T23:28:04.980Z error error
+2022-06-23T23:28:27.094Z [error : error]
+2022-06-23T23:28:38.286Z [error   : error]
+2022-06-23T23:28:41.816Z [error   : error]
+2022-06-23T23:28:55.958Z [error  ] : error
+2022-06-23T23:29:16.998Z [ERROR  ] : error
+2022-06-23T23:30:45.643Z [ERROR  ] : error

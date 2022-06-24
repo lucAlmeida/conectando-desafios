@@ -128,7 +128,7 @@ router.put(
     }
 
     // eslint-disable-next-line eqeqeq
-    if (!authenticatedUser || authenticatedUser.id != req.params.id) {
+    if (!authenticatedUser || authenticatedUser.id != req.body.idUsuario) {
       return next(new ForbiddenException('unauthorized_projeto_update'));
     }
 

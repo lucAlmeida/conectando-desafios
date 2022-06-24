@@ -58,19 +58,17 @@ const ProjetoListItemCard = (props) => {
               >
                 {descricao}
               </p>
-              {/* 
               <p className="card-text d-flex justify-content-left">
                 <span>
                   <b>{t('projectContact')}: </b> {contato}
                 </span>
               </p>
-              
+
               <p className="card-text d-flex justify-content-left">
                 <span>
                   <b>{t('companyName')}:</b> {nomeEmpresa}
                 </span>
               </p>
-              */}
               <p className="card-text d-flex justify-content-left">
                 <span>
                   <b>{t('projectPublishedOn')}:</b> {dataPublicacao}

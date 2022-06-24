@@ -8,18 +8,19 @@ const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 const salvar = async (body) => {
-  const { id, nome, responsavel, categoria, localidade, cnpj, idUsuario } = body;
+  const { nome, responsavel, categoria, localidade, cnpj, idUsuario } = body;
   const transaction = await sequelize.transaction();
   let response;
   try {
     body.perfilCorporativo = true;
     const idUsuario = await UsuarioService.salvar(body, transaction);
     console.log('idUsuario criado na empresa: ' + idUsuario);
-    const empresa = { id, nome, responsavel, categoria, localidade, cnpj, idUsuario };
+    const empresa = { id: idUsuario, nome, responsavel, categoria, localidade, cnpj };
     console.log('To commit on empresaService..');
     response = await Empresa.create(empresa, { transaction });
     await transaction.commit();
   } catch (error) {
+    console.log(error);
     console.log('To rollback on empresaService');
     await transaction.rollback();
 
@@ -32,7 +33,7 @@ const getEmpresasWithFilter = async (page, size, authenticatedUser, search) => {
   var empresasWithCount;
   if (search) {
     empresasWithCount = await Empresa.findAndCountAll({
-      attributes: ['nome', 'responsavel', 'categoria', 'localidade', 'cnpj', 'idUsuario'],
+      attributes: ['nome', 'responsavel', 'categoria', 'localidade', 'cnpj', 'id'],
       limit: size,
       offset: page * size,
       where: {
@@ -47,7 +48,7 @@ const getEmpresasWithFilter = async (page, size, authenticatedUser, search) => {
     });
   } else {
     empresasWithCount = await Empresa.findAndCountAll({
-      attributes: ['nome', 'responsavel', 'categoria', 'localidade', 'cnpj', 'idUsuario'],
+      attributes: ['nome', 'responsavel', 'categoria', 'localidade', 'cnpj', 'id'],
       limit: size,
       offset: page * size,
     });
@@ -62,7 +63,7 @@ const getEmpresasWithFilter = async (page, size, authenticatedUser, search) => {
 
 const getEmpresas = async (page, size, authenticatedUser) => {
   const empresasWithCount = await Empresa.findAndCountAll({
-    attributes: ['nome', 'responsavel', 'categoria', 'localidade', 'cnpj', 'idUsuario'],
+    attributes: ['nome', 'responsavel', 'categoria', 'localidade', 'cnpj', 'id'],
     limit: size,
     offset: page * size,
   });
@@ -76,8 +77,8 @@ const getEmpresas = async (page, size, authenticatedUser) => {
 
 const getEmpresaByUserId = async (userId) => {
   const empresa = await Empresa.findOne({
-    where: { idUsuario: userId },
-    attributes: ['nome', 'responsavel', 'categoria', 'localidade', 'cnpj', 'idUsuario'],
+    where: { id: userId },
+    attributes: ['nome', 'responsavel', 'categoria', 'localidade', 'cnpj', 'id'],
   });
   if (!empresa) {
     throw new EmpresaNotFoundException();
@@ -86,7 +87,7 @@ const getEmpresaByUserId = async (userId) => {
 };
 
 const updateEmpresaByUserId = async (userId, updatedBody) => {
-  const empresa = await Empresa.findOne({ where: { idUsuario: userId } });
+  const empresa = await Empresa.findOne({ where: { id: userId } });
   empresa.nome = updatedBody.nome;
   empresa.responsavel = updatedBody.responsavel;
   empresa.categoria = updatedBody.categoria;
@@ -96,7 +97,7 @@ const updateEmpresaByUserId = async (userId, updatedBody) => {
 };
 
 const deleteEmpresaByUserId = async (userId) => {
-  await Empresa.destroy({ where: { idUsuario: userId } });
+  await Empresa.destroy({ where: { id: userId } });
 };
 
 module.exports = {

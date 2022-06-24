@@ -1,4 +1,5 @@
 import network from '../assets/network.jpg';
+import logo from '../assets/conectando-desafios-logo.png';
 import { useTranslation } from 'react-i18next';
 
 const Welcome = (props) => {
@@ -30,7 +31,7 @@ const Welcome = (props) => {
         style={{
           color: 'white',
           position: 'absolute',
-          top: '10%',
+          top: '5%',
           left: '10%',
           right: '10%',
         }}
@@ -42,7 +43,15 @@ const Welcome = (props) => {
             textAlign: 'center',
           }}
         >
-          Conectando Desafios
+          <img
+            style={{
+              maxWidth: '20%',
+              maxHeight: '30%',
+              height: 'auto',
+            }}
+            src={logo}
+            alt="Logotipo da Plataforma Conectando Desafios"
+          ></img>
         </div>
         <div
           style={{

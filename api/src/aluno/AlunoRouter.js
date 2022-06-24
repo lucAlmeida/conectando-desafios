@@ -104,7 +104,7 @@ router.get('/api/1.0/alunos/:id', async (req, res, next) => {
     if (!authenticatedUser) {
       return next(new ForbiddenException('unauthorized_access'));
     }
-    const aluno = await AlunoService.getAlunoByUserId(req.params.id);
+    const aluno = await AlunoService.getAluno(req.params.id);
     res.send(aluno);
   } catch (err) {
     next(err);
@@ -153,7 +153,7 @@ router.put(
       return next(new ForbiddenException('unauthorized_aluno_update'));
     }
 
-    await AlunoService.updateAlunoByUserId(req.params.id, req.body);
+    await AlunoService.updateAluno(req.params.id, req.body);
     return res.send();
   }
 );
@@ -164,7 +164,7 @@ router.delete('/api/1.0/alunos/:id', async (req, res, next) => {
   if (!authenticatedUser || authenticatedUser.id != req.params.id) {
     return next(new ForbiddenException('unauthorized_aluno_delete'));
   }
-  await AlunoService.deleteAlunoByUserId(req.params.id);
+  await AlunoService.deleteAluno(req.params.id);
   res.send();
 });
 

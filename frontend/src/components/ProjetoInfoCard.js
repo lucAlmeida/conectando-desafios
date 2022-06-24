@@ -225,15 +225,6 @@ const ProjetoInfoCard = (props) => {
   return (
     <>
       <div className="card text-center">
-        <div className="card-header">
-          <img
-            src={defaultProfileImage}
-            alt="profile"
-            width="200"
-            height="200"
-            className="rounded-circle shadow"
-          />
-        </div>
         <div className="card-body">{content}</div>
       </div>
       {modalVisible && (

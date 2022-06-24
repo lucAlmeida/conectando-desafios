@@ -22,10 +22,6 @@ Empresa.init(
     cnpj: {
       type: Sequelize.STRING,
     },
-    idUsuario: {
-      type: Sequelize.INTEGER,
-      primaryKey: true,
-    },
   },
   {
     sequelize,

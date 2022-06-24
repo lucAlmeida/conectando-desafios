@@ -13,7 +13,7 @@ const salvar = async (body) => {
   let response;
   try {
     const idUsuario = await UsuarioService.salvar(body, transaction);
-    const aluno = { nome, localidade, curso, sobre, semestre, idUsuario };
+    const aluno = { nome, localidade, curso, sobre, semestre, id: idUsuario };
     response = await Aluno.create(aluno, { transaction });
     await transaction.commit();
   } catch (error) {
@@ -28,7 +28,7 @@ const getAlunosWithFilter = async (page, size, authenticatedUser, search) => {
   var alunosWithCount;
   if (search) {
     alunosWithCount = await Aluno.findAndCountAll({
-      attributes: ['id', 'nome', 'localidade', 'curso', 'sobre', 'semestre', 'idUsuario'],
+      attributes: ['id', 'nome', 'localidade', 'curso', 'sobre', 'semestre'],
       limit: size,
       offset: page * size,
       where: {
@@ -43,7 +43,7 @@ const getAlunosWithFilter = async (page, size, authenticatedUser, search) => {
     });
   } else {
     alunosWithCount = await Aluno.findAndCountAll({
-      attributes: ['id', 'nome', 'localidade', 'curso', 'sobre', 'semestre', 'idUsuario'],
+      attributes: ['id', 'nome', 'localidade', 'curso', 'sobre', 'semestre'],
       limit: size,
       offset: page * size,
     });
@@ -59,7 +59,7 @@ const getAlunosWithFilter = async (page, size, authenticatedUser, search) => {
 
 const getAlunos = async (page, size, authenticatedUser) => {
   const alunosWithCount = await Aluno.findAndCountAll({
-    attributes: ['id', 'nome', 'localidade', 'curso', 'sobre', 'semestre', 'idUsuario'],
+    attributes: ['id', 'nome', 'localidade', 'curso', 'sobre', 'semestre'],
     limit: size,
     offset: page * size,
   });
@@ -74,18 +74,7 @@ const getAlunos = async (page, size, authenticatedUser) => {
 const getAluno = async (id) => {
   const aluno = await Aluno.findOne({
     where: { id: id },
-    attributes: ['id', 'nome', 'localidade', 'curso', 'sobre', 'semestre', 'idUsuario'],
-  });
-  if (!aluno) {
-    throw new AlunoNotFoundException();
-  }
-  return aluno;
-};
-
-const getAlunoByUserId = async (userId) => {
-  const aluno = await Aluno.findOne({
-    where: { idUsuario: userId },
-    attributes: ['id', 'nome', 'localidade', 'curso', 'sobre', 'semestre', 'idUsuario'],
+    attributes: ['id', 'nome', 'localidade', 'curso', 'sobre', 'semestre'],
   });
   if (!aluno) {
     throw new AlunoNotFoundException();
@@ -103,22 +92,8 @@ const updateAluno = async (id, updatedBody) => {
   await aluno.save();
 };
 
-const updateAlunoByUserId = async (userId, updatedBody) => {
-  const aluno = await Aluno.findOne({ where: { idUsuario: userId } });
-  aluno.nome = updatedBody.nome;
-  aluno.localidade = updatedBody.localidade;
-  aluno.curso = updatedBody.curso;
-  aluno.sobre = updatedBody.sobre;
-  aluno.semestre = updatedBody.semestre;
-  await aluno.save();
-};
-
 const deleteAluno = async (id) => {
   await Aluno.destroy({ where: { id: id } });
-};
-
-const deleteAlunoByUserId = async (userId) => {
-  await Aluno.destroy({ where: { idUsuario: userId } });
 };
 
 module.exports = {
@@ -126,9 +101,6 @@ module.exports = {
   getAlunos,
   getAlunosWithFilter,
   getAluno,
-  getAlunoByUserId,
   updateAluno,
-  updateAlunoByUserId,
   deleteAluno,
-  deleteAlunoByUserId,
 };
