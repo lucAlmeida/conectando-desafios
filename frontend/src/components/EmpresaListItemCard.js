@@ -22,7 +22,7 @@ const EmpresaListItemCard = (props) => {
           <div
             className="card border-dark mb-3"
             style={{ width: '70%', cursor: 'pointer' }}
-            onClick={() => history.push(`/empresa/${empresa.idUsuario}`)}
+            onClick={() => history.push(`/empresa/${empresa.id}`)}
           >
             <div className="card-header">
               <b>{nome}</b>

@@ -146,7 +146,7 @@ const AlunoInfoCard = (props) => {
             </div>
           </div>
         </div>
-        {aluno.idUsuario === id && (
+        {aluno.id === id && (
           <>
             <div>
               <button

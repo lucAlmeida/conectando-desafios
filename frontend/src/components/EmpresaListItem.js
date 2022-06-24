@@ -7,7 +7,7 @@ const EmpresaListItem = (props) => {
   return (
     <li
       className="list-group-item list-group-item-action"
-      onClick={() => history.push(`/empresa/${empresa.idUsuario}`)}
+      onClick={() => history.push(`/empresa/${empresa.id}`)}
       style={{ cursor: 'pointer' }}
     >
       <img

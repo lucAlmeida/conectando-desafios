@@ -21,7 +21,7 @@ const AlunoListItemCard = (props) => {
           <div
             className="card border-dark mb-3"
             style={{ width: '70%', cursor: 'pointer' }}
-            onClick={() => history.push(`/aluno/${aluno.idUsuario}`)}
+            onClick={() => history.push(`/aluno/${aluno.id}`)}
           >
             <div className="card-header">
               <b>{nome}</b>

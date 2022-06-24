@@ -178,7 +178,7 @@ const EmpresaInfoCard = (props) => {
             </div>
           </div>
         </div>
-        {empresa.idUsuario === id && (
+        {empresa.id === id && (
           <>
             <div>
               <button

@@ -21,6 +21,7 @@ const ProjetoInfoCard = (props) => {
   const history = useHistory();
 
   const { projeto, empresa } = props;
+  const [idProjeto] = useState(projeto.id);
   const [newTitulo, setNewTitulo] = useState(projeto.titulo);
   const [newCategoria, setNewCategoria] = useState(projeto.categoria);
   const [newDescricao, setNewDescricao] = useState(projeto.descricao);
@@ -35,11 +36,12 @@ const ProjetoInfoCard = (props) => {
   const onClickSave = async () => {
     setUpdateApiProgress(true);
     try {
-      await updateProjeto(id, {
+      await updateProjeto(idProjeto, {
         titulo: newTitulo,
         categoria: newCategoria,
         descricao: newDescricao,
         contato: newContato,
+        idUsuario: id,
       });
       setEditMode(false);
       dispatch(

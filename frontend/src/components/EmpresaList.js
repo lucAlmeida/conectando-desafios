@@ -71,9 +71,7 @@ class EmpresaList extends Component {
         </div>
         <ul className="list-group list-group-flush">
           {content.map((empresa) => {
-            return (
-              <EmpresaListItemCard key={empresa.idUsuario} empresa={empresa} />
-            );
+            return <EmpresaListItemCard key={empresa.id} empresa={empresa} />;
           })}
         </ul>
         <div className="card-footer text-center">
