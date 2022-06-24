@@ -31,6 +31,10 @@ class ProjetoList extends Component {
     }
   };
 
+  handleClick = (e) => {
+    this.loadData(0, this.state.search);
+  };
+
   loadData = async (pageIndex, search) => {
     this.setState({ pendingApiCall: true });
     try {
@@ -92,7 +96,11 @@ class ProjetoList extends Component {
               onChange={this.handleChange}
               onKeyDown={this.handleKeyDown}
             />
-            <button type="button" className="btn btn-primary">
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={this.handleClick}
+            >
               <i className="fas fa-search"></i>
             </button>
           </div>

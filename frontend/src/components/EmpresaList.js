@@ -30,6 +30,10 @@ class EmpresaList extends Component {
     }
   };
 
+  handleClick = (e) => {
+    this.loadData(0, this.state.search);
+  };
+
   loadData = async (pageIndex) => {
     this.setState({ pendingApiCall: true });
     try {
@@ -64,7 +68,11 @@ class EmpresaList extends Component {
               onChange={this.handleChange}
               onKeyDown={this.handleKeyDown}
             />
-            <button type="button" className="btn btn-primary">
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={this.handleClick}
+            >
               <i className="fas fa-search"></i>
             </button>
           </div>
