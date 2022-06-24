@@ -14,14 +14,10 @@ const salvar = async (body) => {
   try {
     body.perfilCorporativo = true;
     const idUsuario = await UsuarioService.salvar(body, transaction);
-    console.log('idUsuario criado na empresa: ' + idUsuario);
     const empresa = { id: idUsuario, nome, responsavel, categoria, localidade, cnpj };
-    console.log('To commit on empresaService..');
     response = await Empresa.create(empresa, { transaction });
     await transaction.commit();
   } catch (error) {
-    console.log(error);
-    console.log('To rollback on empresaService');
     await transaction.rollback();
 
     throw new UserRegisterException();

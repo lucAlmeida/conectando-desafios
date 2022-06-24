@@ -27,12 +27,8 @@ const salvar = async (body, transaction) => {
     // await EmailService.sendAccountActivation(email, usuario.activationToken);
     // await transaction.commit();
     const usuarioCriado = await Usuario.create(usuario, { transaction });
-    console.log('criou usuario ' + usuarioCriado.id);
     return usuarioCriado.id;
   } catch (err) {
-    console.log('failed on usuarioService');
-    console.log(err);
-    console.log('To rollback on usuarioService');
     await transaction.rollback();
     // throw new EmailException();
     throw new UserRegisterException();

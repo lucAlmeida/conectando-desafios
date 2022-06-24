@@ -58,6 +58,7 @@ const ProjetoListItemCard = (props) => {
               >
                 {descricao}
               </p>
+              {/* 
               <p className="card-text d-flex justify-content-left">
                 <span>
                   <b>{t('projectContact')}: </b> {contato}
@@ -69,6 +70,7 @@ const ProjetoListItemCard = (props) => {
                   <b>{t('companyName')}:</b> {nomeEmpresa}
                 </span>
               </p>
+              */}
               <p className="card-text d-flex justify-content-left">
                 <span>
                   <b>{t('projectPublishedOn')}:</b> {dataPublicacao}

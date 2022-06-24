@@ -50,7 +50,7 @@ export const loadUsers = (page) => {
   return axios.get(
     'https://conectando-desafios-api.herokuapp.com/api/1.0/usuarios',
     {
-      params: { page, size: 3 },
+      params: { page, size: 5 },
     }
   );
 };
@@ -59,7 +59,7 @@ export const loadAlunos = (page) => {
   return axios.get(
     'https://conectando-desafios-api.herokuapp.com/api/1.0/alunos',
     {
-      params: { page, size: 3 },
+      params: { page, size: 5 },
     }
   );
 };
@@ -68,7 +68,7 @@ export const loadAlunosWithFilter = (page, search) => {
   return axios.get(
     'https://conectando-desafios-api.herokuapp.com/api/1.0/alunos',
     {
-      params: { page, size: 3, search },
+      params: { page, size: 5, search },
     }
   );
 };
@@ -77,7 +77,7 @@ export const loadEmpresas = (page) => {
   return axios.get(
     'https://conectando-desafios-api.herokuapp.com/api/1.0/empresas',
     {
-      params: { page, size: 3 },
+      params: { page, size: 5 },
     }
   );
 };
@@ -86,7 +86,7 @@ export const loadEmpresasWithFilter = (page, search) => {
   return axios.get(
     'https://conectando-desafios-api.herokuapp.com/api/1.0/empresas',
     {
-      params: { page, size: 3, search },
+      params: { page, size: 5, search },
     }
   );
 };
@@ -95,7 +95,7 @@ export const loadProjetos = (page) => {
   return axios.get(
     'https://conectando-desafios-api.herokuapp.com/api/1.0/projetos',
     {
-      params: { page, size: 3 },
+      params: { page, size: 5 },
     }
   );
 };
@@ -104,7 +104,7 @@ export const loadProjetosWithFilter = (page, search) => {
   return axios.get(
     'https://conectando-desafios-api.herokuapp.com/api/1.0/projetos',
     {
-      params: { page, size: 3, search },
+      params: { page, size: 5, search },
     }
   );
 };

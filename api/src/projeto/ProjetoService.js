@@ -25,8 +25,8 @@ const getProjetosWithFilter = async (page, size, authenticatedUser, search) => {
           { titulo: { [Op.like]: `%${search}%` } },
           { categoria: { [Op.like]: `%${search}%` } },
           { descricao: { [Op.like]: `%${search}%` } },
-          { contato: { [Op.like]: `%${search}%` } },
-          { '$Empresa.nome$': { [Op.like]: `%${search}%` } },
+          // { contato: { [Op.like]: `%${search}%` } },
+          // { '$Empresa.nome$': { [Op.like]: `%${search}%` } },
         ],
       },
       include: [
@@ -80,7 +80,6 @@ const getProjeto = async (id) => {
 };
 
 const updateProjeto = async (id, updatedBody) => {
-  console.log('id:    ' + id);
   const projeto = await Projeto.findOne({ where: { id: id } });
   projeto.titulo = updatedBody.titulo;
   projeto.categoria = updatedBody.categoria;
@@ -90,7 +89,6 @@ const updateProjeto = async (id, updatedBody) => {
 };
 
 const deleteProjeto = async (id) => {
-  console.log('id do projeto: ' + id);
   await Projeto.destroy({ where: { id: id } });
 };
 
